@@ -53,6 +53,7 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
                 if( count($lvl) != 0 ) {
                     $data['lvl'] = $lvl[2];
                 }
+                return $data;           
             case DOKU_LEXER_UNMATCHED :
                 return array('state'=>$state, 'text'=>$match);
             default:
@@ -65,13 +66,26 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
     ****/
     function _renderer_note($renderer, $data) {
         $renderer->doc .= '<div>';
-         
-	if($data['lvl'] == "warning") {
-	    $renderer->doc .= '<p>Ceci est une note importante</p>';
-	}elseif($data['lvl'] == "info") {
-            $renderer->doc .= '<p>Ceci est une note d\'information</p>';        }else{
+	if($data['lvl'] == "web") {
+            $renderer->doc .= '<div><span class="glyphicon glyphicon-globe" aria-hidden="true">';
+	    $renderer->doc .= '<p>Ceci est une note d\'information.</p>';
+	}elseif($data['lvl'] == "question") {
+            $renderer->doc .= '<div><span class="glyphicon glyphicon-question-sign" aria-hidden="true">';
+            $renderer->doc .= '<p>Ceci est une question</p>'; 
+        }elseif($data['lvl'] == "learn") {
+            $renderer->doc .= '<div><span class="glyphicon glyphicon-education" aria-hidden="true">';
+            $renderer->doc .= '<p>Ceci est une note importante</p>';
+         }elseif($data['lvl'] == "warning") {
+            $renderer->doc .= '<div><span class="glyphicon glyphicon-alert" aria-hidden="true">';
+            $renderer->doc .= '<p>Ceci est une note d\'attention</p>';
+        }elseif($data['lvl'] == "critical") {
+            $renderer->doc .= '<div><span class="glyphicon glyphicon-fire" aria-hidden="true">';
+            $renderer->doc .= '<p>Ceci est une note importante</p>';
+	}else{
+            $renderer->doc .= '<div><span class="glyphicon glyphicon-info-sign" aria-hidden="true">';
             $renderer->doc .= '<p>Ceci est une note normale</p>';
-        }    
+        }
+        $renderer->doc .= '</div>';    
     }
 
     // Dokuwiki Renderer
