@@ -67,8 +67,13 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
     function _renderer_note($renderer, $data) {
         $renderer->doc .= '<div>';
 	if($data['lvl'] == "web") {
-            $renderer->doc .= '<div><span class="glyphicon glyphicon-globe" aria-hidden="true">';
-	    $renderer->doc .= '<p>Ceci est une note d\'information.</p>';
+            //$renderer->doc .= '<div>';   
+            $renderer->doc .= '<div class="sign-container">';
+            $renderer->doc .= '<span class="sign">';
+            $renderer->doc .= '<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>';
+            $renderer->doc .= '</span>'; // /.sign
+            $renderer->doc .= '</div>'; // /.sign-container
+            //$renderer->doc .= '<p>Ceci est une note WEB.</p>';
 	}elseif($data['lvl'] == "question") {
             $renderer->doc .= '<div><span class="glyphicon glyphicon-question-sign" aria-hidden="true">';
             $renderer->doc .= '<p>Ceci est une question</p>'; 
@@ -98,14 +103,15 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
         }
         $renderer->info['cache'] = false;
         switch($data['state']) {
-            case DOKU_LEXER_SPECIAL :
-                $this->_renderer_note($renderer, $data);
-                break;
+            //case DOKU_LEXER_SPECIAL :
+            //    $this->_renderer_note($renderer, $data);
+            //    break;
             case DOKU_LEXER_ENTER :
                 $this->_renderer_note($renderer, $data);
+                $renderer->doc .= '<div class="note">';
                 break;
             case DOKU_LEXER_EXIT:
-                $renderer->doc .= '</div>';
+                $renderer->doc .= '</div>';//</div>';
             case DOKU_LEXER_UNMATCHED :
                 $renderer->doc .= $renderer->_xmlEntities($data['text']);
                 break;

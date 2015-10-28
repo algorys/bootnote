@@ -1,0 +1,30 @@
+div.sign-container {
+    display: block;
+    position: relative;
+}
+
+span.sign {
+    position: absolute;
+    top: 0;
+    z-index: 10;
+    display: block;
+    padding: 5px 8px;
+    font-size: 12px;
+    color: #767676;
+    border-radius: 0 4px 0 4px;
+}
+
+div.note {
+    padding-left: 3em;
+    padding: 17px;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    border-radius: 3px;
+    border-left-color: #1b809e;
+    margin-left: 3em;
+    margin-right: 2em;
+}
+
+.glyphicon {
+    font-size: 2em;
+}
