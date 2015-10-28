@@ -68,42 +68,32 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
          $renderer->doc .= '<span class="glyphicon glyphicon-'.$glyph.'" aria-hidden="true"></span>';
          $renderer->doc .= '</span>'; // /.sign
          $renderer->doc .= '</div>'; // /.sign-container
+            $renderer->doc .= '<div class="note">';
     }
 
     /****
     * MAIN FONCTION
     ****/
-    function _renderer_note($renderer, $data) {
-        $renderer->doc .= '<div>';
+    function _define_note($renderer, $data) {
 	if($data['lvl'] == "web") {
             $glyph = "globe";
             $this->_render_note($renderer, $data, $glyph);
 	}elseif($data['lvl'] == "question") {
-            //$renderer->doc .= '<div><span class="glyphicon glyphicon-question-sign" aria-hidden="true">';
             $glyph = "question-sign";
             $this->_render_note($renderer, $data, $glyph);
         }elseif($data['lvl'] == "learn") {
-            //$renderer->doc .= '<div><span class="glyphicon glyphicon-education" aria-hidden="true">';
-            //$renderer->doc .= '<p>Ceci est une note importante</p>';
             $glyph = "education";
             $this->_render_note($renderer, $data, $glyph);
          }elseif($data['lvl'] == "warning") {
-            //$renderer->doc .= '<div><span class="glyphicon glyphicon-alert" aria-hidden="true">';
-            //$renderer->doc .= '<p>Ceci est une note d\'attention</p>';
             $glyph = "alert";
             $this->_render_note($renderer, $data, $glyph);
         }elseif($data['lvl'] == "critical") {
-            //$renderer->doc .= '<div><span class="glyphicon glyphicon-fire" aria-hidden="true">';
-            //$renderer->doc .= '<p>Ceci est une note importante</p>';
             $glyph = "fire";
             $this->_render_note($renderer, $data, $glyph);
 	}else{
-            //$renderer->doc .= '<div><span class="glyphicon glyphicon-info-sign" aria-hidden="true">';
-            //$renderer->doc .= '<p>Ceci est une note normale</p>';
             $glyph = "info-sign";
             $this->_render_note($renderer, $data, $glyph);
         }
-        $renderer->doc .= '</div>';    
     }
 
     // Dokuwiki Renderer
@@ -116,12 +106,10 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
         }
         $renderer->info['cache'] = false;
         switch($data['state']) {
-            //case DOKU_LEXER_SPECIAL :
-            //    $this->_renderer_note($renderer, $data);
-            //    break;
             case DOKU_LEXER_ENTER :
-                $this->_renderer_note($renderer, $data);
-                $renderer->doc .= '<div class="note">';
+                $this->_define_note($renderer, $data);
+                //$renderer->doc .= '<div class="note">';
+                print_r($glyph);
                 break;
             case DOKU_LEXER_EXIT:
                 $renderer->doc .= '</div>';//</div>';
