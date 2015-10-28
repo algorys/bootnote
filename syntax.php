@@ -61,34 +61,47 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
          }
     }
 
+    function _render_note($renderer, $data, $glyph) {
+         $renderer->doc .= '<div>';
+         $renderer->doc .= '<div class="sign-container">';
+         $renderer->doc .= '<span class="sign">';
+         $renderer->doc .= '<span class="glyphicon glyphicon-'.$glyph.'" aria-hidden="true"></span>';
+         $renderer->doc .= '</span>'; // /.sign
+         $renderer->doc .= '</div>'; // /.sign-container
+    }
+
     /****
     * MAIN FONCTION
     ****/
     function _renderer_note($renderer, $data) {
         $renderer->doc .= '<div>';
 	if($data['lvl'] == "web") {
-            //$renderer->doc .= '<div>';   
-            $renderer->doc .= '<div class="sign-container">';
-            $renderer->doc .= '<span class="sign">';
-            $renderer->doc .= '<span class="glyphicon glyphicon-globe" aria-hidden="true"></span>';
-            $renderer->doc .= '</span>'; // /.sign
-            $renderer->doc .= '</div>'; // /.sign-container
-            //$renderer->doc .= '<p>Ceci est une note WEB.</p>';
+            $glyph = "globe";
+            $this->_render_note($renderer, $data, $glyph);
 	}elseif($data['lvl'] == "question") {
-            $renderer->doc .= '<div><span class="glyphicon glyphicon-question-sign" aria-hidden="true">';
-            $renderer->doc .= '<p>Ceci est une question</p>'; 
+            //$renderer->doc .= '<div><span class="glyphicon glyphicon-question-sign" aria-hidden="true">';
+            $glyph = "question-sign";
+            $this->_render_note($renderer, $data, $glyph);
         }elseif($data['lvl'] == "learn") {
-            $renderer->doc .= '<div><span class="glyphicon glyphicon-education" aria-hidden="true">';
-            $renderer->doc .= '<p>Ceci est une note importante</p>';
+            //$renderer->doc .= '<div><span class="glyphicon glyphicon-education" aria-hidden="true">';
+            //$renderer->doc .= '<p>Ceci est une note importante</p>';
+            $glyph = "education";
+            $this->_render_note($renderer, $data, $glyph);
          }elseif($data['lvl'] == "warning") {
-            $renderer->doc .= '<div><span class="glyphicon glyphicon-alert" aria-hidden="true">';
-            $renderer->doc .= '<p>Ceci est une note d\'attention</p>';
+            //$renderer->doc .= '<div><span class="glyphicon glyphicon-alert" aria-hidden="true">';
+            //$renderer->doc .= '<p>Ceci est une note d\'attention</p>';
+            $glyph = "alert";
+            $this->_render_note($renderer, $data, $glyph);
         }elseif($data['lvl'] == "critical") {
-            $renderer->doc .= '<div><span class="glyphicon glyphicon-fire" aria-hidden="true">';
-            $renderer->doc .= '<p>Ceci est une note importante</p>';
+            //$renderer->doc .= '<div><span class="glyphicon glyphicon-fire" aria-hidden="true">';
+            //$renderer->doc .= '<p>Ceci est une note importante</p>';
+            $glyph = "fire";
+            $this->_render_note($renderer, $data, $glyph);
 	}else{
-            $renderer->doc .= '<div><span class="glyphicon glyphicon-info-sign" aria-hidden="true">';
-            $renderer->doc .= '<p>Ceci est une note normale</p>';
+            //$renderer->doc .= '<div><span class="glyphicon glyphicon-info-sign" aria-hidden="true">';
+            //$renderer->doc .= '<p>Ceci est une note normale</p>';
+            $glyph = "info-sign";
+            $this->_render_note($renderer, $data, $glyph);
         }
         $renderer->doc .= '</div>';    
     }
