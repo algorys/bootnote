@@ -17,14 +17,69 @@ span.sign {
 div.note {
     padding-left: 3em;
     padding: 17px;
-    border: 1px solid #eee;
-    border-left-width: 5px;
-    border-radius: 3px;
-    border-left-color: #1b809e;
-    margin-left: 3em;
-    margin-right: 2em;
+    border: 3px;
+    margin-left: 4em;
+    margin-right: 6em;
 }
 
 .glyphicon {
     font-size: 2em;
+}
+
+.s-fire {
+    color:red;
+}
+
+div.s-fire {
+    color:red;
+    border:solid red;
+}
+
+.s-alert {
+    color: darkorange;
+}
+
+div.s-alert {
+    color: darkorange;
+    border: solid darkorange;
+}
+
+.note>a.urlextern {
+    font-weight: bold;
+}
+
+.s-globe {
+    color:violet;
+}
+
+div.s-globe {
+    color: violet;
+    border:violet;
+}
+
+.s-info-sign {
+    color: #1b809e;
+}
+
+div.s-info-sign {
+    color: #1b809e;
+    border:solid #1b809e;
+}
+
+.s-question-sign {
+    color: #1b809e;
+}
+
+div.s-question-sign {
+    color: #1b809e;
+    border:solid #1b809e;
+}
+
+.s-education {
+    color: black;
+}
+
+div.s-education {
+    color: black;
+    border:solid black;
 }

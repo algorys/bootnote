@@ -65,10 +65,10 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
          $renderer->doc .= '<div>';
          $renderer->doc .= '<div class="sign-container">';
          $renderer->doc .= '<span class="sign">';
-         $renderer->doc .= '<span class="glyphicon glyphicon-'.$glyph.'" aria-hidden="true"></span>';
+         $renderer->doc .= '<span class="glyphicon glyphicon-'.$glyph.' s-'.$glyph.'" aria-hidden="true"></span>';
          $renderer->doc .= '</span>'; // /.sign
          $renderer->doc .= '</div>'; // /.sign-container
-            $renderer->doc .= '<div class="note">';
+            $renderer->doc .= '<div class="note s-'.$glyph.'">';
     }
 
     /****
