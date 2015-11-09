@@ -1,10 +1,11 @@
-# BootNote
-
-! This plugin is under development.
+# Plugin BootNote
 
 ## Description
 
 Bootnote is a plugin for [Dokuwiki](https://www.dokuwiki.org). It display some note inside the wiki with bootstrap style.
+
+## Install
+Download this plugin into your ``${dokuwiki_root}/lib/plugins`` folder and restart dokuwiki.
 
 ## Requirements
 
@@ -23,3 +24,7 @@ You can display actually 6 different types of notes :
 **Note :** If you want more type of note, please let me know by opening an issue in this repos.
 
 ## Current Render
+Here is a preview of each note :
+![](http://s17.postimg.org/bxbd7qs9r/bootnote.png)
+
+For further information, see also [Bootnote on dokuwiki.org](https://www.dokuwiki.org/plugin:bootnote)
