@@ -62,13 +62,14 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
     }
 
     function _render_note($renderer, $data, $glyph) {
-         $renderer->doc .= '<div>';
+         $renderer->doc .= '<div>'; // Global
          $renderer->doc .= '<div class="sign-container">';
-         $renderer->doc .= '<span class="sign">';
-         $renderer->doc .= '<span class="glyphicon glyphicon-'.$glyph.' s-'.$glyph.'" aria-hidden="true"></span>';
-         $renderer->doc .= '</span>'; // /.sign
+         $renderer->doc .= '  <span class="sign">';
+         $renderer->doc .= '    <span class="glyphicon glyphicon-'.$glyph.' s-'.$glyph.'" aria-hidden="true"></span>';
+         $renderer->doc .= '  </span>'; // /.sign
          $renderer->doc .= '</div>'; // /.sign-container
-         $renderer->doc .= '<div class="note s-'.$glyph.'">';
+         $renderer->doc .= '<div class="note-container s-'.$glyph.'">';
+         $renderer->doc .= '<div class="note">';
     }
 
     /****
@@ -108,11 +109,13 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
         switch($data['state']) {
             case DOKU_LEXER_ENTER :
                 $this->_define_note($renderer, $data);
-                //$renderer->doc .= '<div class="note">';
-                print_r($glyph);
                 break;
             case DOKU_LEXER_EXIT:
-                $renderer->doc .= '</div>';//</div>';
+                $renderer->doc .= '</div>';// /.note
+                $renderer->doc .= '<div class="triangle"></div>';
+                $renderer->doc .= '</div>';// /.note-container
+                $renderer->doc .= '</div>';// /Global
+
             case DOKU_LEXER_UNMATCHED :
                 $renderer->doc .= $renderer->_xmlEntities($data['text']);
                 break;

@@ -17,8 +17,14 @@ span.sign {
 div.note {
     padding-left: 3em;
     padding: 17px;
-    border: 3px;
     margin-left: 4em;
+    margin-right: 17px;
+    border-top: solid 3px;
+    border-left: solid 3px;
+    border-bottom: solid 3px white;
+}
+div.note-container {
+    position: relative;
     margin-right: 6em;
 }
 
@@ -30,20 +36,20 @@ div.note {
     color:#f04124;
 }
 
-div.s-fire {
+div.s-fire>div {
     color: white;
     background-color: #f04124;
-    border:solid #ea2f10;
+    border-color: #ea2f10;
 }
 
 .s-alert {
     color: #e99002;
 }
 
-div.s-alert {
+div.s-alert>div {
     color: white;
     background-color: #e99002;
-    border: solid darkorange;
+    border-color: darkorange;
 }
 
 .note>a.urlextern {
@@ -54,38 +60,73 @@ div.s-alert {
     color:#B075FF;
 }
 
-div.s-globe {
+div.s-globe>div {
     color: #6900AD;
     background-color: #F3EAFF;
-    border:solid #B075FF;
+    border-color:#B075FF;
 }
 
 .s-info-sign {
     color: #5bc0de;
 }
 
-div.s-info-sign {
+div.s-info-sign>div {
     color: white;
     background-color: #5bc0de;
-    border:solid #3db5d8;
+    border-color: #3db5d8;
 }
 
 .s-question-sign {
     color: #43ac6a;
 }
 
-div.s-question-sign {
+div.s-question-sign>div {
     color: white;
     background-color: #43ac6a;
-    border:solid #3c9a5f;
+    border-color:#3c9a5f;
 }
 
 .s-education {
-    color: black;
+    color: #006687;
 }
 
-div.s-education {
+div.s-education>div {
     color: white;
     background-color: black;
-    border:solid #006687;
+    border-color:#006687;
 }
+
+.triangle {
+    position: absolute;
+    top:0;
+    right: 0;
+    width:17px;
+    height: 100%;
+    -webkit-clip-path: polygon(0 0, 100% 17px, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 17px, 100% 100%, 0 100%);
+    border-bottom: solid 3px;
+    border-right: solid 3px;
+    border-top: solid 3px;
+}
+
+.triangle:before {
+    content: "";
+    top: -3px;
+    right: -3px;
+    width: 0px;
+    height: 0px;
+    position:absolute;
+    border-bottom: 17px solid #484848;
+    border-right: 17px solid transparent;
+}
+
+.triangle:after {
+    content: "";
+    position: absolute;
+    top: -3px;
+    right:-3px;
+    width: 0px;
+    height: 0px;
+    border-top: 17px solid #fff; 
+    border-left: 17px solid transparent;
+}*/
