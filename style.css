@@ -118,6 +118,7 @@ div.s-education>div {
     position:absolute;
     border-bottom: 17px solid #484848;
     border-right: 17px solid transparent;
+    border-radius: 0 0 0 5px;
 }
 
 .triangle:after {
