@@ -8,7 +8,7 @@ span.sign {
     top: 0;
     z-index: 10;
     display: block;
-    padding: 5px 8px;
+    padding: 14px;
     font-size: 12px;
     color: #767676;
     border-radius: 0 4px 0 4px;
@@ -27,20 +27,22 @@ div.note {
 }
 
 .s-fire {
-    color:red;
+    color:#f04124;
 }
 
 div.s-fire {
-    color:red;
-    border:solid red;
+    color: white;
+    background-color: #f04124;
+    border:solid #ea2f10;
 }
 
 .s-alert {
-    color: darkorange;
+    color: #e99002;
 }
 
 div.s-alert {
-    color: darkorange;
+    color: white;
+    background-color: #e99002;
     border: solid darkorange;
 }
 
@@ -49,30 +51,33 @@ div.s-alert {
 }
 
 .s-globe {
-    color:#6900AD;
+    color:#B075FF;
 }
 
 div.s-globe {
     color: #6900AD;
-    border:solid #6900AD;
+    background-color: #F3EAFF;
+    border:solid #B075FF;
 }
 
 .s-info-sign {
-    color: #1b809e;
+    color: #5bc0de;
 }
 
 div.s-info-sign {
-    color: #1b809e;
-    border:solid #1b809e;
+    color: white;
+    background-color: #5bc0de;
+    border:solid #3db5d8;
 }
 
 .s-question-sign {
-    color: #1b809e;
+    color: #43ac6a;
 }
 
 div.s-question-sign {
-    color: #1b809e;
-    border:solid #1b809e;
+    color: white;
+    background-color: #43ac6a;
+    border:solid #3c9a5f;
 }
 
 .s-education {
@@ -80,6 +85,7 @@ div.s-question-sign {
 }
 
 div.s-education {
-    color: black;
-    border:solid black;
+    color: white;
+    background-color: black;
+    border:solid #006687;
 }

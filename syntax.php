@@ -68,7 +68,7 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
          $renderer->doc .= '<span class="glyphicon glyphicon-'.$glyph.' s-'.$glyph.'" aria-hidden="true"></span>';
          $renderer->doc .= '</span>'; // /.sign
          $renderer->doc .= '</div>'; // /.sign-container
-            $renderer->doc .= '<div class="note s-'.$glyph.'">';
+         $renderer->doc .= '<div class="note s-'.$glyph.'">';
     }
 
     /****
