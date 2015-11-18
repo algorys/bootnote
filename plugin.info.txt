@@ -1,0 +1,7 @@
+base   bootnote
+author Algorys
+email  ttamalfor@gmail.com
+date   2015-11-18
+name   bootnote
+desc   display note inside dokuwiki with bootstrap style
+
