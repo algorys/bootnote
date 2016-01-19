@@ -49,10 +49,11 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
                         'lvl'=> "",
                     );
                 // Looking for id
-                preg_match("/lvl *= *(['\"])(.*?)\\1/", $match, $lvl);
+                preg_match("/bootnote (\\w*)/", $match, $lvl);
                 if( count($lvl) != 0 ) {
-                    $data['lvl'] = $lvl[2];
+                    $data['lvl'] = $lvl[1];
                 }
+                print_r($data['lvl']);
                 return $data;           
             case DOKU_LEXER_UNMATCHED :
                 return array('state'=>$state, 'text'=>$match);
