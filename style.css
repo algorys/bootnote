@@ -37,8 +37,8 @@ div.note-container {
 }
 
 div.s-fire>div {
-    color: white;
-    background-color: #f04124;
+    color: black;
+    background-color: #FDCBC3;
     border-color: #ea2f10;
 }
 
@@ -47,8 +47,8 @@ div.s-fire>div {
 }
 
 div.s-alert>div {
-    color: white;
-    background-color: #e99002;
+    color: black;
+    background-color: #FFFFAD;
     border-color: darkorange;
 }
 
@@ -71,8 +71,8 @@ div.s-globe>div {
 }
 
 div.s-info-sign>div {
-    color: white;
-    background-color: #5bc0de;
+    color: black;
+    background-color: #E1F8FF;
     border-color: #3db5d8;
 }
 
