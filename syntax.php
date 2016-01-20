@@ -27,7 +27,7 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
     }
 
     public function getSort() {
-        return 198;
+        return 192;
     }
 
     function connectTo($mode) {
@@ -66,7 +66,6 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
                 if( count($lvl) != 0 ) {
                     $data['lvl'] = $lvl[1];
                 }
-                print_r($data['lvl']);
                 return $data;           
             case DOKU_LEXER_UNMATCHED :
                 return array('state'=>$state, 'text'=>$match);
@@ -90,22 +89,22 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
     * MAIN FONCTION
     ****/
     function _define_note($renderer, $data) {
-	if($data['lvl'] == "web") {
+	    if($data['lvl'] == "web") {
             $glyph = "globe";
             $this->_render_note($renderer, $data, $glyph);
-	}elseif($data['lvl'] == "question") {
+	    }elseif($data['lvl'] == "question") {
             $glyph = "question-sign";
             $this->_render_note($renderer, $data, $glyph);
-        }elseif($data['lvl'] == "learn") {
+        }elseif($data['lvl'] == "learn" || $data['lvl'] == "tip") {
             $glyph = "education";
             $this->_render_note($renderer, $data, $glyph);
          }elseif($data['lvl'] == "warning") {
             $glyph = "alert";
             $this->_render_note($renderer, $data, $glyph);
-        }elseif($data['lvl'] == "critical") {
+        }elseif($data['lvl'] == "critical" || $data['lvl'] == "important") {
             $glyph = "fire";
             $this->_render_note($renderer, $data, $glyph);
-	}else{
+	    }else{
             $glyph = "info-sign";
             $this->_render_note($renderer, $data, $glyph);
         }
