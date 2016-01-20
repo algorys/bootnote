@@ -31,11 +31,19 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
     }
 
     function connectTo($mode) {
-        $this->Lexer->addEntryPattern('<bootnote[^>]*>(?=.*</bootnote>)', $mode,'plugin_bootnote');
+        if($this->getConf('bootnote.note') == 'note') {
+            $this->Lexer->addEntryPattern('<note[^>]*>(?=.*</note>)', $mode,'plugin_bootnote');
+        } else {
+            $this->Lexer->addEntryPattern('<bootnote[^>]*>(?=.*</bootnote>)', $mode,'plugin_bootnote');
+        }
     }
     
     function postConnect() {
-        $this->Lexer->addExitPattern('</bootnote>', 'plugin_bootnote');
+        if($this->getConf('bootnote.note') == 'note') {
+            $this->Lexer->addExitPattern("</note>", 'plugin_bootnote');
+        } else {
+            $this->Lexer->addExitPattern("</bootnote>", 'plugin_bootnote');
+        }
     }
 
 /**
@@ -49,7 +57,12 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
                         'lvl'=> "",
                     );
                 // Looking for id
-                preg_match("/bootnote (\\w*)/", $match, $lvl);
+                if($this->getConf('bootnote.note') == 'note') {
+                    $note = 'note';
+                } else {
+                    $note = 'bootnote';
+                }
+                preg_match("/$note (\\w*)/", $match, $lvl);
                 if( count($lvl) != 0 ) {
                     $data['lvl'] = $lvl[1];
                 }
