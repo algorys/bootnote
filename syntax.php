@@ -46,9 +46,9 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
         }
     }
 
-/**
-* Do the regexp
-**/
+    /**
+    * Do the regexp
+    **/
     function handle($match, $state, $pos, Doku_Handler $handler) {
         switch($state){
             case DOKU_LEXER_ENTER :
@@ -75,7 +75,7 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
     }
 
     function _render_note($renderer, $data, $glyph) {
-         $renderer->doc .= '<div>'; // Global
+         $renderer->doc .= '<div style="clear: both;">'; // Global
          $renderer->doc .= '<div class="sign-container">';
          $renderer->doc .= '  <span class="sign">';
          $renderer->doc .= '    <span class="glyphicon glyphicon-'.$glyph.' s-'.$glyph.' glyph" aria-hidden="true"></span>';
