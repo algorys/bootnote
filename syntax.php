@@ -146,12 +146,12 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
 
     function getTitle($glyph) {
         $titles = Array(
-            'info-sign'     => 'Note',
-            'education'     => 'To Know',
-            'question-sign' => 'Question',
-            'alert'         => 'Warning',
-            'fire'          => 'Important',
-            'globe'         => 'Link'
+            'info-sign'     => $this->getLang('bootnote.info'),
+            'education'     => $this->getLang('bootnote.learn'),
+            'question-sign' => $this->getLang('bootnote.question'),
+            'alert'         => $this->getLang('bootnote.alert'),
+            'fire'          => $this->getLang('bootnote.fire'),
+            'globe'         => $this->getLang('bootnote.link')
         );
 
         return $titles[$glyph];
