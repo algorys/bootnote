@@ -1,5 +1,8 @@
 <?php
-$conf['bootnote.note'] = "<div>Choisissez si vous voulez remplacer l'affichage du plugin <a href=\"https://www.dokuwiki.org/plugin:note\">note</a> ou non.</div>";
-$conf['bootnote.note_o_bootnote'] = "bootnote";
-$conf['bootnote.note_o_note'] = "note";
+$lang['bootnote.note'] = "<div>Choisissez si vous voulez remplacer l'affichage du plugin <a href=\"https://www.dokuwiki.org/plugin:note\">note</a> ou non.</div>";
+$lang['bootnote.note_o_bootnote'] = "Utiliser la syntaxe \"bootnote\"";
+$lang['bootnote.note_o_note'] = "Surcharger et utiliser la syntaxe \"note\"";
 
+$lang['bootnote.theme'] = "<div>Choisissez si vous voulez garder l'ancien thème ou le nouveau.</div>";
+$lang['bootnote.theme_o_oldtheme'] = "Ancien Thème";
+$lang['bootnote.theme_o_newtheme'] = "Nouveau Thème";

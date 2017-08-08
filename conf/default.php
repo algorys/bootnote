@@ -4,3 +4,4 @@
  */
 
 $conf['bootnote.note'] = 'bootnote';
+$conf['bootnote.theme'] = 'newtheme';
