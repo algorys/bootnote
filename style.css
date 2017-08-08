@@ -134,15 +134,27 @@ div.s-education>div {
 
 /* NEW CSS THEME*/
 
+.w3-panel {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding: 10px;
+}
+
+.w3-panel>p {
+    margin-bottom: 0.4em;
+}
+
 .blackglyph {
     font-size: 160%;
     padding: 1%;
+    margin-bottom: inherit;
     vertical-align: middle;
 }
 
 .n-title {
     font-size: 1.2em;
     font-weight: bold;
+    /*vertical-align: middle;*/
 }
 
 .n-info-sign {
@@ -185,8 +197,4 @@ div.s-education>div {
     color: #2f28ff;
 }
 
-.w3-panel {
-    margin-top: 16px;
-    margin-bottom: 16px;
-    padding: 10px;
-}
+
