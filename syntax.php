@@ -74,7 +74,54 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
          }
     }
 
-    function _render_note($renderer, $data, $glyph) {
+    // Dokuwiki Renderer
+    function render($mode, Doku_Renderer $renderer, $data) {
+        if($mode != 'xhtml') return false;
+
+        if($data['error']) {
+            $renderer->doc .= $data['text'];
+            return true;
+        }
+        $renderer->info['cache'] = false;
+        switch($data['state']) {
+            case DOKU_LEXER_ENTER :
+                $this->_define_note($renderer, $data);
+                break;
+            case DOKU_LEXER_EXIT:
+                if ($this->getConf('bootnote.theme') == 'oldtheme') {
+                    $renderer->doc .= '</div>';// /.note
+                    $renderer->doc .= '<div class="triangle"></div>';
+                    $renderer->doc .= '</div>';// /.note-container
+                    $renderer->doc .= '</div>';// /Global
+                } else {
+                    $renderer->doc .= '</p></div>';
+                }
+
+            case DOKU_LEXER_UNMATCHED :
+                $renderer->doc .= $renderer->_xmlEntities($data['text']);
+                break;
+        }
+        return true;
+    }
+
+    // Define note before render
+    function _define_note($renderer, $data) {
+        $glyphs = Array(
+            'web' => 'globe',
+            'question' => 'question-sign',
+            'learn' => 'education',
+            'tip' => 'education',
+            'warning' => 'alert',
+            'critical' => 'fire',
+            'important' => 'fire',
+            '' => 'info-sign'
+        );
+
+	    $this->_render_note($renderer, $glyphs[$data['lvl']]);
+    }
+
+    // Render Note
+    function _render_note($renderer, $glyph) {
         if ($this->getConf('bootnote.theme') == 'oldtheme') {
             $renderer->doc .= '<div style="clear: both;">'; // Global
             $renderer->doc .= '<div class="sign-container">';
@@ -108,61 +155,6 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
         );
 
         return $titles[$glyph];
-    }
-
-    /****
-    * MAIN FONCTION
-    ****/
-    function _define_note($renderer, $data) {
-	    if($data['lvl'] == "web") {
-            $glyph = "globe";
-            $this->_render_note($renderer, $data, $glyph);
-	    }elseif($data['lvl'] == "question") {
-            $glyph = "question-sign";
-            $this->_render_note($renderer, $data, $glyph);
-        }elseif($data['lvl'] == "learn" || $data['lvl'] == "tip") {
-            $glyph = "education";
-            $this->_render_note($renderer, $data, $glyph);
-         }elseif($data['lvl'] == "warning") {
-            $glyph = "alert";
-            $this->_render_note($renderer, $data, $glyph);
-        }elseif($data['lvl'] == "critical" || $data['lvl'] == "important") {
-            $glyph = "fire";
-            $this->_render_note($renderer, $data, $glyph);
-	    }else{
-            $glyph = "info-sign";
-            $this->_render_note($renderer, $data, $glyph);
-        }
-    }
-
-    // Dokuwiki Renderer
-    function render($mode, Doku_Renderer $renderer, $data) {
-        if($mode != 'xhtml') return false;
-
-        if($data['error']) {
-            $renderer->doc .= $data['text'];
-            return true;
-        }
-        $renderer->info['cache'] = false;
-        switch($data['state']) {
-            case DOKU_LEXER_ENTER :
-                $this->_define_note($renderer, $data);
-                break;
-            case DOKU_LEXER_EXIT:
-                if ($this->getConf('bootnote.theme') == 'oldtheme') {
-                    $renderer->doc .= '</div>';// /.note
-                    $renderer->doc .= '<div class="triangle"></div>';
-                    $renderer->doc .= '</div>';// /.note-container
-                    $renderer->doc .= '</div>';// /Global
-                } else {
-                    $renderer->doc .= '</p></div>';
-                }
-
-            case DOKU_LEXER_UNMATCHED :
-                $renderer->doc .= $renderer->_xmlEntities($data['text']);
-                break;
-        }
-        return true;
     }
 }
 
