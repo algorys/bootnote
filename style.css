@@ -130,4 +130,58 @@ div.s-education>div {
     height: 0px;
     border-top: 17px solid #fff; 
     border-left: 17px solid transparent;
-}*/
+}
+
+/* NEW CSS THEME*/
+
+.blackglyph {
+    font-size: 160%;
+    padding: 1%;
+    vertical-align: middle;
+}
+
+.n-info-sign {
+    background-color: #d9edf7;
+    border-left: 6px solid #31708f;
+    color: #31708f;
+}
+
+.n-education {
+    background-color: #000000;
+    border-left: 6px solid #02a2d6;
+    color: #ffffff;
+}
+
+.n-question-sign {
+    background-color: #dff0d8;
+    border-left: 6px solid #3c763d;
+    color: #3c763d;
+}
+
+.n-fire {
+    background-color: #f2dede;
+    border-left: 6px solid #a94442;
+    color: #a94442;
+}
+
+.n-alert {
+    background-color: #fcf8e3;
+    border-left: 6px solid #ffeb3b;
+    color: #8a6d3b;
+}
+
+.n-globe {
+    background-color: #f3eaff;
+    border-left: 6px solid #b075ff;
+    color: #8f3cff;
+}
+
+.n-globe>p>a.urlextern {
+    color: #2f28ff;
+}
+
+.w3-panel {
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding: 10px;
+}

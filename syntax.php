@@ -75,14 +75,34 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
     }
 
     function _render_note($renderer, $data, $glyph) {
-         $renderer->doc .= '<div style="clear: both;">'; // Global
-         $renderer->doc .= '<div class="sign-container">';
-         $renderer->doc .= '  <span class="sign">';
-         $renderer->doc .= '    <span class="glyphicon glyphicon-'.$glyph.' s-'.$glyph.' glyph" aria-hidden="true"></span>';
-         $renderer->doc .= '  </span>'; // /.sign
-         $renderer->doc .= '</div>'; // /.sign-container
-         $renderer->doc .= '<div class="note-container s-'.$glyph.'">';
-         $renderer->doc .= '<div class="note">';
+        if ($this->getConf('bootnote.theme') == 'oldtheme') {
+            $renderer->doc .= '<div style="clear: both;">'; // Global
+            $renderer->doc .= '<div class="sign-container">';
+            $renderer->doc .= '  <span class="sign">';
+            $renderer->doc .= '    <span class="glyphicon glyphicon-'.$glyph.' s-'.$glyph.' glyph" aria-hidden="true"></span>';
+            $renderer->doc .= '  </span>'; // /.sign
+            $renderer->doc .= '</div>'; // /.sign-container
+            $renderer->doc .= '<div class="note-container s-'.$glyph.'">';
+            $renderer->doc .= '<div class="note">';
+        } else {
+            $renderer->doc .= '<div class="w3-panel n-'.$glyph.'"><p>';
+            $renderer->doc .= '<span class="glyphicon glyphicon-'.$glyph.' blackglyph" aria-hidden="true"></span>';
+            $renderer->doc .= '<strong>'.$this->getTitle($glyph).'</strong></p>';
+            $renderer->doc .= '<p>';
+        }
+    }
+
+    function getTitle($glyph) {
+        $titles = Array(
+            'info-sign'     => 'Note',
+            'education'     => 'To Know',
+            'question-sign' => 'Question',
+            'alert'         => 'Warning',
+            'fire'          => 'Important',
+            'globe'         => 'Link'
+        );
+
+        return $titles[$glyph];
     }
 
     /****
@@ -124,10 +144,14 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
                 $this->_define_note($renderer, $data);
                 break;
             case DOKU_LEXER_EXIT:
-                $renderer->doc .= '</div>';// /.note
-                $renderer->doc .= '<div class="triangle"></div>';
-                $renderer->doc .= '</div>';// /.note-container
-                $renderer->doc .= '</div>';// /Global
+                if ($this->getConf('bootnote.theme') == 'oldtheme') {
+                    $renderer->doc .= '</div>';// /.note
+                    $renderer->doc .= '<div class="triangle"></div>';
+                    $renderer->doc .= '</div>';// /.note-container
+                    $renderer->doc .= '</div>';// /Global
+                } else {
+                    $renderer->doc .= '</p></div>';
+                }
 
             case DOKU_LEXER_UNMATCHED :
                 $renderer->doc .= $renderer->_xmlEntities($data['text']);
