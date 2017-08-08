@@ -6,8 +6,6 @@ Bootnote is a plugin for [Dokuwiki](https://www.dokuwiki.org). It display some n
 
 ## Install
 
-**Important**: this plugin has change his syntax to get future compatibility with the lugin [note](https://www.dokuwiki.org/plugin:note) ! If you have already install, juste remove quotes and "lvl=" inside your wiki. Notes comes back after.
-
 Download this plugin into your ``${dokuwiki_root}/lib/plugins`` folder and restart dokuwiki or use the plugin manager inside Dokuwiki.
 
 ## Requirements
@@ -27,14 +25,18 @@ You can display actually 6 different types of notes :
 
 **Note :** If you want more type of note, please let me know by opening an issue in this repos.
 
+## Settings
+
+* **bootnote.note**: You can choose to override the plugin [note](https://www.dokuwiki.org/plugin:note) in settings to continue using its syntax.
+* **bootnote.theme**: you can come back to old theme if you want. (See below for further informations)
+* **bootnote.position**: defines if you want to display your text beside or below the note title.
+
 ## Current Render
 
 Here is a preview of each note :
 
 ![new-bootnote.png](https://s2.postimg.org/aguld4eah/new-bootnote.png)
 
-And here the old theme, always available in settings. this theme is deprecated for Dokuwiki theme and only works properly with a bootstrap thème !
-
-![old-bootnote](http://s8.postimg.org/quyole85x/bootnote.png)
+**Important:** The old theme is always available in settings but he's deprecated for Dokuwiki theme and only works properly with a bootstrap theme ! This theme may be remove in future versions
 
 For further information, see also [Bootnote on dokuwiki.org](https://www.dokuwiki.org/plugin:bootnote)
