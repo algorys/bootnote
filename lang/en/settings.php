@@ -7,3 +7,7 @@ $lang['bootnote.theme'] = "<div>Choose if you want to keep old theme or get the 
 $lang['bootnote.theme_o_oldtheme'] = "Old Theme";
 $lang['bootnote.theme_o_newtheme'] = "New Theme";
 
+$lang['bootnote.position'] = "<div>Define if text inside the note is beside or below the note title.</div>";
+$lang['bootnote.position_o_beside'] = "Beside Title";
+$lang['bootnote.position_o_below'] = "Below Title";
+

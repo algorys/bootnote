@@ -87,8 +87,13 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
         } else {
             $renderer->doc .= '<div class="w3-panel n-'.$glyph.'"><p>';
             $renderer->doc .= '<span class="glyphicon glyphicon-'.$glyph.' blackglyph" aria-hidden="true"></span>';
-            $renderer->doc .= '<strong>'.$this->getTitle($glyph).'</strong></p>';
-            $renderer->doc .= '<p>';
+            $renderer->doc .= '<strong>'.$this->getTitle($glyph).':</strong>';
+            if ($this->getConf('bootnote.position') == 'below') {
+                $renderer->doc .= '</p>';
+                $renderer->doc .= '<p>';
+            } else {
+                $renderer->doc .= ' '; // Need a space to separate title from text
+            }
         }
     }
 
