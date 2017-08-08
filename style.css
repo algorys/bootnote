@@ -140,6 +140,11 @@ div.s-education>div {
     vertical-align: middle;
 }
 
+.n-title {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
 .n-info-sign {
     background-color: #d9edf7;
     border-left: 6px solid #2183b3;

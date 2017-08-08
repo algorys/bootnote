@@ -87,7 +87,7 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
         } else {
             $renderer->doc .= '<div class="w3-panel n-'.$glyph.'"><p>';
             $renderer->doc .= '<span class="glyphicon glyphicon-'.$glyph.' blackglyph" aria-hidden="true"></span>';
-            $renderer->doc .= '<strong>'.$this->getTitle($glyph).':</strong>';
+            $renderer->doc .= '<span class="n-title">'.$this->getTitle($glyph).':</span>';
             if ($this->getConf('bootnote.position') == 'below') {
                 $renderer->doc .= '</p>';
                 $renderer->doc .= '<p>';
