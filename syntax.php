@@ -78,12 +78,12 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
     function render($mode, Doku_Renderer $renderer, $data) {
         if($mode != 'xhtml') return false;
 
-        if($data['error']) {
-            $renderer->doc .= $data['text'];
+        if($this->getArrayValue('error',$data)) {
+            $renderer->doc .= $this->getArrayValue('text',$data;
             return true;
         }
         $renderer->info['cache'] = false;
-        switch($data['state']) {
+        switch($this->getArrayValue('state',$data)) {
             case DOKU_LEXER_ENTER :
                 $this->_define_note($renderer, $data);
                 break;
@@ -98,11 +98,18 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
                 }
 
             case DOKU_LEXER_UNMATCHED :
-                $renderer->doc .= $renderer->_xmlEntities($data['text']);
+                $renderer->doc .= $renderer->_xmlEntities($this->getArrayValue('text',$data]);
                 break;
         }
         return true;
     }
+
+    function getArrayValue(string $key,array $array,$default=''){
+    	if (array_key_exists($key,$array)){
+    	    return $array[$key];
+    	}
+    	return $default;    	  	
+     }
 
     // Define note before render
     function _define_note($renderer, $data) {
