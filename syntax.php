@@ -79,7 +79,7 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
         if($mode != 'xhtml') return false;
 
         if($this->getArrayValue('error',$data)) {
-            $renderer->doc .= $this->getArrayValue('text',$data;
+            $renderer->doc .= $this->getArrayValue('text',$data);
             return true;
         }
         $renderer->info['cache'] = false;
@@ -98,7 +98,7 @@ class syntax_plugin_bootnote extends DokuWiki_Syntax_Plugin {
                 }
 
             case DOKU_LEXER_UNMATCHED :
-                $renderer->doc .= $renderer->_xmlEntities($this->getArrayValue('text',$data]);
+                $renderer->doc .= $renderer->_xmlEntities($this->getArrayValue('text',$data));
                 break;
         }
         return true;
